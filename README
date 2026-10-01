@@ -1,0 +1,22 @@
+# Conduit QA — API test automation
+
+![API tests](badge-url)
+
+Playwright + TypeScript test suite for the RealWorld Conduit API.
+
+## Run it
+npm ci && npm run test:api
+
+## Design decisions
+- Typed API clients return raw responses; tests own assertions.
+- Contract validation with zod on every response.
+- Worker-scoped user by default, factory fixtures for fresh users.
+- All test data created per test with faker + unique ids; seeds logged for replay.
+- Cleanup in fixture teardown; parallel-safe by design.
+- Data-driven validation, permission-matrix and edge-case tests.
+
+## Findings
+Bugs and spec deviations found, with links to the tests that show them.
+
+## Not covered, and why
+Load testing (see perf/, run locally only), contract testing (single consumer).
